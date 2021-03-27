@@ -7,9 +7,9 @@ _get_repolink () {
     if [[ $UPSTREAM_REPO == "LEGEND" ]]
     then
         echo "aHR0cHM6Ly9naXRodWIuY29tL0xFR0VORFhPUC9MRUdFTkQtQk9UL2FyY2hpdmUvbWFzdGVyLnppcA=='" | base64 -d
-    elif [[ $UPSTREAM_REPO == "LEGENDX" ]]
+    elif [[ $UPSTREAM_REPO == "ULTRA" ]]
     then
-        echo "aHR0cHM6Ly9naXRodWIuY29tL0xFR0VORFhPUC9MRUdFTkQtQk9UL2FyY2hpdmUvbWFzdGVyLnppcA=='" | base64 -d
+        echo "aHR0cHM6Ly9naXRodWIuY29tL1VMVFJBLU9QL1VMVFJBLVgvbWFpbi9hcmNoaXZlLnppcA==" | base64 -d
     elif [[ $UPSTREAM_REPO =~ $regex ]]
     then
         if [[ $UPSTREAM_REPO_BRANCH ]]
@@ -19,14 +19,14 @@ _get_repolink () {
             echo "${UPSTREAM_REPO}/archive/master.zip"
         fi
     else
-        echo "aHR0cHM6Ly9naXRodWIuY29tL0xFR0VORFhPUC9MRUdFTkQtQk9UL2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
+        echo "aHR0cHM6Ly9naXRodWIuY29tL1VMVFJBLU9QL1VMVFJBLVgvbWFpbi9hcmNoaXZlLnppcA==" | base64 -d
     fi
 }
 
 
 _set_bot () {
     local zippath
-    zippath="legendbot.zip"
+    zippath="ULTRAx.zip"
     echo "  Downloading source code ..."
     wget -q $(_get_repolink) -O "$zippath"
     echo "  Unpacking Data ..."
@@ -37,9 +37,9 @@ _set_bot () {
     rm -rf "$zippath"
     sleep 5
     cd $CATPATH
-    echo "    Starting LEGENDBOT    "
+    echo "    Starting ULTRA X    "
     echo "
-                        LEGEND BOT IS RUNNING IS ON THE WAY
+                        ULTRA X IS RUNNING IS ON THE WAY
     "
 
     echo "
@@ -53,7 +53,7 @@ _set_bot () {
     :.......::::......:::........::..:::::..::........::::.......::::::..:::::
     "
     python3 ../setup/updater.py ../requirements.txt requirements.txt
-    python3 -m userbot
+    python3 -m ULTRA
 }
 
 _set_bot
